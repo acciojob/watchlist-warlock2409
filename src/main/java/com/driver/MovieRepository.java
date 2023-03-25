@@ -2,10 +2,7 @@ package com.driver;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class MovieRepository {
@@ -65,20 +62,13 @@ public class MovieRepository {
 //        }
 //        hd.remove(name);
 //        return true;
-        List<String> li = new ArrayList<>();
-        for(String movie :  hp.keySet()){
-            if(hp.get(movie).equals(name)){
-                li.add(movie);
-            }
-        }
-        for(String s : li){
-            if(hm.containsKey(s)){
-                hm.remove(s);
-            }
-        }
-        for(String s : li){
-            hp.remove(s);
-        }
+       for(Map.Entry<String,String> entry : hp.entrySet()){
+           if(entry.getValue().equals(name)){
+               String movieName = entry.getKey();
+               hm.remove(movieName);
+               hp.remove(movieName);
+           }
+       }
         hd.remove(name);
         return true;
     }
