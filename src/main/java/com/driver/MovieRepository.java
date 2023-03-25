@@ -55,27 +55,31 @@ public class MovieRepository {
         return list;
     }
     public boolean deleteDirectorByName(String name){
-        Iterator<String> iterator = hp.keySet().iterator();
-        while (iterator.hasNext()) {
-            String movie = iterator.next();
-            if (hp.get(movie).equals(name)) {
-                iterator.remove();
-                hm.remove(movie);
-            }
-        }
-        hd.remove(name);
-        return true;
-//        for(String movie :  hp.keySet()){
-//            if(hp.get(movie).equals(name)){
-//                if(hm.containsKey(movie))
-//                    hm.remove(movie);
-//                if(hd.containsKey(name))
-//                    hd.remove(name);
-//
-//                hp.remove(movie);
+//        Iterator<String> iterator = hp.keySet().iterator();
+//        while (iterator.hasNext()) {
+//            String movie = iterator.next();
+//            if (hp.get(movie).equals(name)) {
+//                iterator.remove();
+//                hm.remove(movie);
 //            }
 //        }
+//        hd.remove(name);
 //        return true;
+        List<String> li = new ArrayList<>();
+        for(String movie :  hp.keySet()){
+            if(hp.get(movie).equals(name)){
+                if(hm.containsKey(movie))
+                    hm.remove(movie);
+                if(hd.containsKey(name))
+                    hd.remove(name);
+
+                li.add(movie);
+            }
+        }
+        for(String s : li){
+            hp.remove(s);
+        }
+        return true;
     }
     public boolean deleteAllDirectors(){
         for(String Director : hd.keySet()){
