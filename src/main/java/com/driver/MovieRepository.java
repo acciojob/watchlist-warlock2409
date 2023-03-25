@@ -68,17 +68,18 @@ public class MovieRepository {
         List<String> li = new ArrayList<>();
         for(String movie :  hp.keySet()){
             if(hp.get(movie).equals(name)){
-                if(hm.containsKey(movie))
-                    hm.remove(movie);
-                if(hd.containsKey(name))
-                    hd.remove(name);
-
                 li.add(movie);
+            }
+        }
+        for(String s : li){
+            if(hm.containsKey(s)){
+                hm.remove(s);
             }
         }
         for(String s : li){
             hp.remove(s);
         }
+        hd.remove(name);
         return true;
     }
     public boolean deleteAllDirectors(){
