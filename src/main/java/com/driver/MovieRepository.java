@@ -37,19 +37,19 @@ public class MovieRepository {
         }
         return null;
     }
-    public List<Movie> getMoviesByDirectorName(String director){
-        List<Movie> list = new ArrayList<>();
+    public List<String> getMoviesByDirectorName(String director){
+        List<String> list = new ArrayList<>();
         for(String movie : hp.keySet()){
             if(hp.get(movie).equals(director)){
-                list.add(hm.get(movie));
+                list.add(hm.get(movie).getName());
             }
         }
         return list;
     }
-    public List<Movie> findAllMovies(){
-        List<Movie> list = new ArrayList<>();
+    public List<String> findAllMovies(){
+        List<String> list = new ArrayList<>();
         for(String movie : hm.keySet()){
-           list.add(hm.get(movie));
+           list.add(hm.get(movie).getName());
         }
         return list;
     }

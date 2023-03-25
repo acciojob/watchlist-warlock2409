@@ -41,13 +41,13 @@ MovieService service = new MovieService();
         return new ResponseEntity<>(res, HttpStatus.CREATED);
     }
     @GetMapping("get-movies-by-director-name/{director}")
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable String director){
-        List<Movie> res = service.getMoviesByDirectorName(director);
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String director){
+        List<String> res = service.getMoviesByDirectorName(director);
         return new ResponseEntity<>(res,HttpStatus.CREATED);
     }
     @GetMapping("get-all-movies")
-    public ResponseEntity<List<Movie>> findAllMovies(){
-        List<Movie> res = service.findAllMovies();
+    public ResponseEntity<List<String>> findAllMovies(){
+        List<String> res = service.findAllMovies();
         return new ResponseEntity<>(res, HttpStatus.CREATED);
 
     }

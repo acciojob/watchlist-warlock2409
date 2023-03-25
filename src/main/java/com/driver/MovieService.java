@@ -28,10 +28,10 @@ public class MovieService {
         return repo.getDirectorByName(name);
     }
 
-    public List<Movie> getMoviesByDirectorName(String director){
+    public List<String> getMoviesByDirectorName(String director){
         return repo.getMoviesByDirectorName(director);
     }
-    public List<Movie> findAllMovies(){
+    public List<String> findAllMovies(){
         return repo.findAllMovies();
     }
     public boolean deleteDirectorByName( String name){
