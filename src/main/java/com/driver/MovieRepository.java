@@ -62,28 +62,48 @@ public class MovieRepository {
 //        }
 //        hd.remove(name);
 //        return true;
-       for(Map.Entry<String,String> entry : hp.entrySet()){
-           if(entry.getValue().equals(name)){
-               String movieName = entry.getKey();
-               hm.remove(movieName);
-               hp.remove(movieName);
-           }
-       }
+//       for(Map.Entry<String,String> entry : hp.entrySet()){
+//           if(entry.getValue().equals(name)){
+//               String movieName = entry.getKey();
+//               hm.remove(movieName);
+//               hp.remove(movieName);
+//           }
+//       }
+//        hd.remove(name);
+//        return true;
+        Iterator<Map.Entry<String, String>> iterator = hp.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> entry = iterator.next();
+            if (entry.getValue().equals(name)) {
+                iterator.remove();
+                hm.remove(entry.getKey());
+            }
+        }
         hd.remove(name);
         return true;
     }
     public boolean deleteAllDirectors(){
 
-        for(String Director : hd.keySet()){
-
-            for(Map.Entry<String,String> entry : hp.entrySet()){
-                if(entry.getValue().equals(Director)){
-                    String movieName = entry.getKey();
-                    hm.remove(movieName);
-                    hp.remove(movieName);
-                }
+//        for(String Director : hd.keySet()){
+//
+//            for(Map.Entry<String,String> entry : hp.entrySet()){
+//                if(entry.getValue().equals(Director)){
+//                    String movieName = entry.getKey();
+//                    hm.remove(movieName);
+//                    hp.remove(movieName);
+//                }
+//            }
+//        }
+//        return true;
+        Iterator<Map.Entry<String, String>> iterator = hp.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> entry = iterator.next();
+            if (hd.containsKey(entry.getValue())) {
+                iterator.remove();
+                hm.remove(entry.getKey());
             }
         }
+        hd.clear();
         return true;
     }
 }
