@@ -2,13 +2,31 @@ package com.driver;
 
 public class Movie {
     private String name;
-    private int duration;
-    private double rating;
+    private int durationInMinutes;
+
+    public double getImdbRating() {
+        return imdbRating;
+    }
+
+    public void setImdbRating(double imdbRating) {
+        this.imdbRating = imdbRating;
+    }
+
+    private double imdbRating;
     public Movie(){}
+
+    public int getDurationInMinutes() {
+        return durationInMinutes;
+    }
+
+    public void setDurationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
+    }
+
     public Movie(String name, int duration, double rating) {
         this.name = name;
-        this.duration = duration;
-        this.rating = rating;
+        this.durationInMinutes = duration;
+        this.imdbRating=rating;
     }
 
     public String getName() {
@@ -19,19 +37,7 @@ public class Movie {
         this.name = name;
     }
 
-    public int getDuration() {
-        return duration;
-    }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
 
-    public double getRating() {
-        return rating;
-    }
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
 }
