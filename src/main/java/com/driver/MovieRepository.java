@@ -73,11 +73,14 @@ public class MovieRepository {
         return true;
     }
     public boolean deleteAllDirectors(){
+
         for(String Director : hd.keySet()){
-            for(String movie : hp.keySet()){
-                if(hp.get(movie).equals(Director)){
-                    hp.remove(movie);
-                    hm.remove(movie);
+
+            for(Map.Entry<String,String> entry : hp.entrySet()){
+                if(entry.getValue().equals(Director)){
+                    String movieName = entry.getKey();
+                    hm.remove(movieName);
+                    hp.remove(movieName);
                 }
             }
         }
